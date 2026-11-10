@@ -1,0 +1,87 @@
+.header {
+  flex-shrink: 0;
+  height: var(--header-height);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-header);
+  position: relative;
+  z-index: 1;
+}
+
+.inner {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.orgLogo {
+  height: 23px;
+  width: auto;
+  display: block;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item {
+  height: 32px;
+  padding: 0 6px;
+  border-radius: var(--radius-control);
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--header-text);
+  white-space: nowrap;
+  font-family: inherit;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  background: var(--chip-bg);
+}
+
+.connection {
+  gap: 8px;
+  cursor: default;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+@container app (max-width: 640px) {
+  .inner {
+    padding: 0 16px;
+  }
+
+  .right {
+    gap: 4px;
+  }
+
+  .collapsibleLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

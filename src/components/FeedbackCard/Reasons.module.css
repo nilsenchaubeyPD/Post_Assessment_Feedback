@@ -1,0 +1,81 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  /* Exactly cancels the CardShell's flex `gap` above this element when
+     closed, so the rating row and the comment box end up a single normal
+     gap apart — not a doubled-up one — when there's nothing to show here. */
+  margin-top: -28px;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--dur) var(--ease),
+    opacity var(--dur) var(--ease),
+    margin-top var(--dur) var(--ease),
+    visibility 0s;
+}
+
+.wrapper.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0;
+  visibility: visible;
+}
+
+@container app (max-width: 640px) {
+  .wrapper {
+    margin-top: -24px;
+  }
+
+  .wrapper.open {
+    margin-top: 0;
+  }
+}
+
+.inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  margin-top: 16px;
+}
+
+.badge {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .badge:hover:not(.selected) {
+    background: var(--primary-soft);
+    color: var(--badge-text);
+  }
+}
+
+.badge.selected {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary-soft-text);
+}

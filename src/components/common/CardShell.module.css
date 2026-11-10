@@ -1,0 +1,30 @@
+.card {
+  width: 100%;
+  max-width: var(--card-max);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.centered {
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 40px 24px;
+}
+
+@container app (max-width: 640px) {
+  .card {
+    padding: 20px 16px;
+    gap: 24px;
+  }
+
+  .centered {
+    padding: 20px 16px;
+  }
+}

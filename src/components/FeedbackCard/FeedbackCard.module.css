@@ -1,0 +1,10 @@
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.title:focus {
+  outline: none;
+}

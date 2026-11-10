@@ -1,0 +1,52 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  width: 100%;
+  /* Height itself is set inline by CommentBox's auto-grow logic (starts
+     at 80px, grows with content up to 120px). These are just the
+     fallback/clamp bounds in CSS so behavior is correct even before JS
+     runs, and so the value can never be pushed outside this range. */
+  height: 80px;
+  min-height: 80px;
+  max-height: 120px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-control);
+  /* Enabled: clearly editable — white background, normal readable text. */
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  /* Height is managed automatically based on content, not by the user
+     dragging a resize handle. */
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: var(--field-placeholder);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.textarea:disabled {
+  /* Disabled: muted background, same border/placeholder tone as the
+     enabled state (matches the TF design system's "Disabled" variant —
+     only the fill changes, not the border or text color). */
+  background: var(--field-disabled-bg);
+  color: var(--field-placeholder);
+  border-color: var(--field-border);
+  cursor: not-allowed;
+  resize: none;
+}
+
+.textarea:disabled::placeholder {
+  color: var(--field-placeholder);
+}

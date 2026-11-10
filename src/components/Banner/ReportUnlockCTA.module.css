@@ -1,0 +1,63 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--button-height);
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius-control);
+  /* Match the shared Button component's typography (used by Submit)
+     exactly, so the two primary CTAs on this screen read as the same
+     weight/size — only the color scheme intentionally differs here
+     (locked/unlocked soft states vs. Submit's solid primary). */
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    filter var(--dur-fast) var(--ease);
+}
+
+.locked {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+.unlocked {
+  background: var(--primary-soft);
+  color: var(--primary-soft-text);
+  cursor: pointer;
+}
+
+.unlocked:hover {
+  filter: brightness(0.96);
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.caption strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@container app (max-width: 640px) {
+  .wrap {
+    margin-top: 24px;
+  }
+}
